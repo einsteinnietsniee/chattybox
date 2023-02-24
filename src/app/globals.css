@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.messages-view {
+  height: calc(100% - 120px);
+}
