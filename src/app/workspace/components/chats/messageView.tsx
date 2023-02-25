@@ -12,12 +12,48 @@ import {
 import classNames from '~/utils/classnames'
 
 const moods = [
-  { name: 'Excited', value: 'excited', icon: FireIcon, iconColor: 'text-white', bgColor: 'bg-red-500' },
-  { name: 'Loved', value: 'loved', icon: HeartIcon, iconColor: 'text-white', bgColor: 'bg-pink-400' },
-  { name: 'Happy', value: 'happy', icon: FaceSmileIconMini, iconColor: 'text-white', bgColor: 'bg-green-400' },
-  { name: 'Sad', value: 'sad', icon: FaceFrownIcon, iconColor: 'text-white', bgColor: 'bg-yellow-400' },
-  { name: 'Thumbsy', value: 'thumbsy', icon: HandThumbUpIcon, iconColor: 'text-white', bgColor: 'bg-blue-500' },
-  { name: 'I feel nothing', value: null, icon: XMarkIcon, iconColor: 'text-gray-400', bgColor: 'bg-transparent' },
+  {
+    name: 'Excited',
+    value: 'excited',
+    icon: FireIcon,
+    iconColor: 'text-white',
+    bgColor: 'bg-red-500',
+  },
+  {
+    name: 'Loved',
+    value: 'loved',
+    icon: HeartIcon,
+    iconColor: 'text-white',
+    bgColor: 'bg-pink-400',
+  },
+  {
+    name: 'Happy',
+    value: 'happy',
+    icon: FaceSmileIconMini,
+    iconColor: 'text-white',
+    bgColor: 'bg-green-400',
+  },
+  {
+    name: 'Sad',
+    value: 'sad',
+    icon: FaceFrownIcon,
+    iconColor: 'text-white',
+    bgColor: 'bg-yellow-400',
+  },
+  {
+    name: 'Thumbsy',
+    value: 'thumbsy',
+    icon: HandThumbUpIcon,
+    iconColor: 'text-white',
+    bgColor: 'bg-blue-500',
+  },
+  {
+    name: 'I feel nothing',
+    value: null,
+    icon: XMarkIcon,
+    iconColor: 'text-gray-400',
+    bgColor: 'bg-transparent',
+  },
 ]
 
 const messages = [
@@ -81,73 +117,75 @@ const messages = [
     side: 'right',
     text: 'You are welcome. Let us know if you have any further issues or questions in the future.',
   },
-];
-
+]
 
 export default function MessageView() {
   const [selected, setSelected] = useState(moods[5])
 
   return (
-    <main className="relative z-0 flex-1 focus:outline-none xl:order-last p-4">
+    <main className='relative z-0 flex-1 focus:outline-none xl:order-last p-4'>
       <ul className='messages-view relative flex flex-col p-4 h-full overflow-y-auto'>
         {messages.map((message) => (
-          <li className={classNames(
-            message.side === 'left' ? 'mr-auto' : 'ml-auto',
-            'mb-8 rounded-md bg-sky-600 text-white py-3 px-6 max-w-md'
-          )}>
+          <li
+            key={message.timestamp}
+            className={classNames(
+              message.side === 'left' ? 'mr-auto' : 'ml-auto',
+              'mb-8 rounded-md bg-sky-600 text-white py-3 px-6 max-w-md',
+            )}
+          >
             {message.text}
           </li>
         ))}
       </ul>
-      <form className='h-1/6 w-full min-h-[115px] pt-4 px-4 shadow-[0_-14px_7px_-15px_rgba(0,0,0,0.3)]' action="#">
-        <div className="border-b border-gray-200 focus-within:border-indigo-600">
-          <label htmlFor="comment" className="sr-only">
+      <form className='h-1/6 w-full min-h-[115px] pt-4 px-4 shadow-[0_-14px_7px_-15px_rgba(0,0,0,0.3)]' action='#'>
+        <div className='border-b border-gray-200 focus-within:border-indigo-600'>
+          <label htmlFor='comment' className='sr-only'>
             Add your comment
           </label>
           <textarea
             rows={3}
-            name="comment"
-            id="comment"
-            className="block w-full resize-none border-0 border-b border-transparent p-0 pb-2 focus:border-indigo-600 focus:ring-0 sm:text-sm"
-            placeholder="Add your comment..."
+            name='comment'
+            id='comment'
+            className='block w-full resize-none border-0 border-b border-transparent p-0 pb-2 focus:border-indigo-600 focus:ring-0 sm:text-sm'
+            placeholder='Add your comment...'
             defaultValue={''}
           />
         </div>
-        <div className="flex justify-between pt-2">
-          <div className="flex items-center space-x-5">
-            <div className="flow-root">
+        <div className='flex justify-between pt-2'>
+          <div className='flex items-center space-x-5'>
+            <div className='flow-root'>
               <button
-                type="button"
-                className="-m-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500"
+                type='button'
+                className='-m-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500'
               >
-                <PaperClipIcon className="h-6 w-6" aria-hidden="true" />
-                <span className="sr-only">Attach a file</span>
+                <PaperClipIcon className='h-6 w-6' aria-hidden='true' />
+                <span className='sr-only'>Attach a file</span>
               </button>
             </div>
-            <div className="flow-root">
+            <div className='flow-root'>
               <Listbox value={selected} onChange={setSelected}>
                 {({ open }) => (
                   <>
-                    <Listbox.Label className="sr-only"> Your mood </Listbox.Label>
-                    <div className="relative">
-                      <Listbox.Button className="relative -m-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500">
-                        <span className="flex items-center justify-center">
+                    <Listbox.Label className='sr-only'> Your mood </Listbox.Label>
+                    <div className='relative'>
+                      <Listbox.Button className='relative -m-2 inline-flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500'>
+                        <span className='flex items-center justify-center'>
                           {selected.value === null ? (
                             <span>
-                              <FaceSmileIconOutline className="h-6 w-6 flex-shrink-0" aria-hidden="true" />
-                              <span className="sr-only"> Add your mood </span>
+                              <FaceSmileIconOutline className='h-6 w-6 flex-shrink-0' aria-hidden='true' />
+                              <span className='sr-only'> Add your mood </span>
                             </span>
                           ) : (
                             <span>
                               <span
                                 className={classNames(
                                   selected.bgColor,
-                                  'flex h-8 w-8 items-center justify-center rounded-full'
+                                  'flex h-8 w-8 items-center justify-center rounded-full',
                                 )}
                               >
-                                <selected.icon className="h-5 w-5 flex-shrink-0 text-white" aria-hidden="true" />
+                                  <selected.icon className='h-5 w-5 flex-shrink-0 text-white' aria-hidden='true' />
                               </span>
-                              <span className="sr-only">{selected.name}</span>
+                                <span className='sr-only'>{selected.name}</span>
                             </span>
                           )}
                         </span>
@@ -156,35 +194,35 @@ export default function MessageView() {
                       <Transition
                         show={open}
                         as={Fragment}
-                        leave="transition ease-in duration-100"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
+                        leave='transition ease-in duration-100'
+                        leaveFrom='opacity-100'
+                        leaveTo='opacity-0'
                       >
-                        <Listbox.Options className="absolute z-10 -ml-6 w-60 rounded-lg bg-white py-3 text-base shadow ring-1 ring-black ring-opacity-5 focus:outline-none sm:ml-auto sm:w-64 sm:text-sm">
+                        <Listbox.Options className='absolute z-10 -ml-6 w-60 rounded-lg bg-white py-3 text-base shadow ring-1 ring-black ring-opacity-5 focus:outline-none sm:ml-auto sm:w-64 sm:text-sm'>
                           {moods.map((mood) => (
                             <Listbox.Option
                               key={mood.value}
                               className={({ active }) =>
                                 classNames(
                                   active ? 'bg-gray-100' : 'bg-white',
-                                  'relative cursor-default select-none py-2 px-3'
+                                  'relative cursor-default select-none py-2 px-3',
                                 )
                               }
                               value={mood}
                             >
-                              <div className="flex items-center">
+                              <div className='flex items-center'>
                                 <div
                                   className={classNames(
                                     mood.bgColor,
-                                    'w-8 h-8 rounded-full flex items-center justify-center'
+                                    'w-8 h-8 rounded-full flex items-center justify-center',
                                   )}
                                 >
                                   <mood.icon
                                     className={classNames(mood.iconColor, 'flex-shrink-0 h-5 w-5')}
-                                    aria-hidden="true"
+                                    aria-hidden='true'
                                   />
                                 </div>
-                                <span className="ml-3 block truncate font-medium">{mood.name}</span>
+                                <span className='ml-3 block truncate font-medium'>{mood.name}</span>
                               </div>
                             </Listbox.Option>
                           ))}
@@ -196,10 +234,10 @@ export default function MessageView() {
               </Listbox>
             </div>
           </div>
-          <div className="flex-shrink-0">
+          <div className='flex-shrink-0'>
             <button
-              type="submit"
-              className="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              type='submit'
+              className='inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
             >
               Send
             </button>

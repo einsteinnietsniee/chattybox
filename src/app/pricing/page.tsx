@@ -169,35 +169,35 @@ export default function Pricing() {
   return (
     <>
       <WebHeader />
-      <div className="bg-gray-50">
-        <div className="relative bg-indigo-600">
+      <div className='bg-gray-50'>
+        <div className='relative bg-indigo-600'>
           {/* Overlapping background */}
-          <div aria-hidden="true" className="absolute bottom-0 hidden h-6 w-full bg-gray-50 lg:block" />
+          <div aria-hidden='true' className='absolute bottom-0 hidden h-6 w-full bg-gray-50 lg:block' />
 
-          <div className="relative mx-auto max-w-2xl px-6 pt-16 text-center sm:pt-32 lg:max-w-7xl lg:px-8">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              <span className="block lg:inline">Simple pricing,</span>
-              <span className="block lg:inline">no commitment.</span>
+          <div className='relative mx-auto max-w-2xl px-6 pt-16 text-center sm:pt-32 lg:max-w-7xl lg:px-8'>
+            <h1 className='text-4xl font-bold tracking-tight text-white sm:text-6xl'>
+              <span className='block lg:inline'>Simple pricing,</span>
+              <span className='block lg:inline'>no commitment.</span>
             </h1>
-            <p className="mt-4 text-xl text-indigo-100">
-              Everything you need, nothing you don't. Pick a plan that best suits your business.
+            <p className='mt-4 text-xl text-indigo-100'>
+              Everything you need, nothing you don&apos;t. Pick a plan that best suits your business.
             </p>
           </div>
 
-          <h2 className="sr-only">Plans</h2>
+          <h2 className='sr-only'>Plans</h2>
 
           {/* Toggle */}
-          <div className="relative mt-12 flex justify-center sm:mt-16">
-            <div className="flex rounded-lg bg-indigo-700 p-0.5">
+          <div className='relative mt-12 flex justify-center sm:mt-16'>
+            <div className='flex rounded-lg bg-indigo-700 p-0.5'>
               <button
-                type="button"
-                className="relative whitespace-nowrap rounded-md border-indigo-700 bg-white py-2 px-6 text-sm font-medium text-indigo-700 shadow-sm hover:bg-indigo-50 focus:z-10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-700"
+                type='button'
+                className='relative whitespace-nowrap rounded-md border-indigo-700 bg-white py-2 px-6 text-sm font-medium text-indigo-700 shadow-sm hover:bg-indigo-50 focus:z-10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-700'
               >
                 Monthly billing
               </button>
               <button
-                type="button"
-                className="relative ml-0.5 whitespace-nowrap rounded-md border border-transparent py-2 px-6 text-sm font-medium text-indigo-200 hover:bg-indigo-800 focus:z-10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-700"
+                type='button'
+                className='relative ml-0.5 whitespace-nowrap rounded-md border border-transparent py-2 px-6 text-sm font-medium text-indigo-200 hover:bg-indigo-800 focus:z-10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-700'
               >
                 Yearly billing
               </button>
@@ -205,39 +205,42 @@ export default function Pricing() {
           </div>
 
           {/* Cards */}
-          <div className="relative mx-auto mt-8 max-w-2xl px-6 pb-8 sm:mt-12 lg:max-w-7xl lg:px-8 lg:pb-0">
+          <div className='relative mx-auto mt-8 max-w-2xl px-6 pb-8 sm:mt-12 lg:max-w-7xl lg:px-8 lg:pb-0'>
             {/* Decorative background */}
             <div
-              aria-hidden="true"
-              className="absolute inset-0 top-4 bottom-6 left-8 right-8 hidden rounded-tl-lg rounded-tr-lg bg-indigo-700 lg:block"
+              aria-hidden='true'
+              className='absolute inset-0 top-4 bottom-6 left-8 right-8 hidden rounded-tl-lg rounded-tr-lg bg-indigo-700 lg:block'
             />
 
-            <div className="relative space-y-6 lg:grid lg:grid-cols-3 lg:space-y-0">
+            <div className='relative space-y-6 lg:grid lg:grid-cols-3 lg:space-y-0'>
               {plans.map((plan) => (
                 <div
                   key={plan.title}
                   className={classNames(
                     plan.featured ? 'bg-white ring-2 ring-indigo-700 shadow-md' : 'bg-indigo-700 lg:bg-transparent',
-                    'pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12'
+                    'pt-6 px-6 pb-3 rounded-lg lg:px-8 lg:pt-12',
                   )}
                 >
                   <div>
                     <h3
-                      className={classNames(plan.featured ? 'text-indigo-600' : 'text-white', 'text-base font-semibold')}
+                      className={classNames(
+                        plan.featured ? 'text-indigo-600' : 'text-white',
+                        'text-base font-semibold',
+                      )}
                     >
                       {plan.title}
                     </h3>
-                    <div className="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start">
-                      <div className="mt-3 flex items-center">
+                    <div className='flex flex-col items-start sm:flex-row sm:items-center sm:justify-between lg:flex-col lg:items-start'>
+                      <div className='mt-3 flex items-center'>
                         <p
                           className={classNames(
                             plan.featured ? 'text-indigo-600' : 'text-white',
-                            'text-4xl font-bold tracking-tight'
+                            'text-4xl font-bold tracking-tight',
                           )}
                         >
                           ${plan.priceMonthly}
                         </p>
-                        <div className="ml-4">
+                        <div className='ml-4'>
                           <p className={classNames(plan.featured ? 'text-gray-700' : 'text-white', 'text-sm')}>
                             USD / mo
                           </p>
@@ -247,41 +250,41 @@ export default function Pricing() {
                         </div>
                       </div>
                       <a
-                        href="#"
+                        href='#'
                         className={classNames(
                           plan.featured
                             ? 'bg-indigo-600 text-white hover:bg-indigo-700'
                             : 'bg-white text-indigo-600 hover:bg-indigo-50',
-                          'mt-6 w-full inline-block py-2 px-8 border border-transparent rounded-md shadow-sm text-center text-sm font-medium sm:mt-0 sm:w-auto lg:mt-6 lg:w-full'
+                          'mt-6 w-full inline-block py-2 px-8 border border-transparent rounded-md shadow-sm text-center text-sm font-medium sm:mt-0 sm:w-auto lg:mt-6 lg:w-full',
                         )}
                       >
                         Buy {plan.title}
                       </a>
                     </div>
                   </div>
-                  <h4 className="sr-only">Features</h4>
+                  <h4 className='sr-only'>Features</h4>
                   <ul
-                    role="list"
+                    role='list'
                     className={classNames(
                       plan.featured
                         ? 'border-gray-200 divide-gray-200'
                         : 'border-indigo-500 divide-indigo-500 divide-opacity-75',
-                      'mt-7 border-t divide-y lg:border-t-0'
+                      'mt-7 border-t divide-y lg:border-t-0',
                     )}
                   >
                     {plan.mainFeatures.map((mainFeature) => (
-                      <li key={mainFeature.id} className="flex items-center py-3">
+                      <li key={mainFeature.id} className='flex items-center py-3'>
                         <CheckIcon
                           className={classNames(
                             plan.featured ? 'text-indigo-500' : 'text-indigo-200',
-                            'w-5 h-5 flex-shrink-0'
+                            'w-5 h-5 flex-shrink-0',
                           )}
-                          aria-hidden="true"
+                          aria-hidden='true'
                         />
                         <span
                           className={classNames(
                             plan.featured ? 'text-gray-600' : 'text-white',
-                            'ml-3 text-sm font-medium'
+                            'ml-3 text-sm font-medium',
                           )}
                         >
                           {mainFeature.value}
@@ -296,34 +299,34 @@ export default function Pricing() {
         </div>
 
         {/* Feature comparison (up to lg) */}
-        <section aria-labelledby="mobile-comparison-heading" className="lg:hidden">
-          <h2 id="mobile-comparison-heading" className="sr-only">
+        <section aria-labelledby='mobile-comparison-heading' className='lg:hidden'>
+          <h2 id='mobile-comparison-heading' className='sr-only'>
             Feature comparison
           </h2>
 
-          <div className="mx-auto max-w-2xl space-y-16 py-16 px-6">
+          <div className='mx-auto max-w-2xl space-y-16 py-16 px-6'>
             {plans.map((plan, mobilePlanIndex) => (
-              <div key="plan.title" className="border-t border-gray-200">
+              <div key='plan.title' className='border-t border-gray-200'>
                 <div
                   className={classNames(
                     plan.featured ? 'border-indigo-600' : 'border-transparent',
-                    '-mt-px pt-6 border-t-2 sm:w-1/2'
+                    '-mt-px pt-6 border-t-2 sm:w-1/2',
                   )}
                 >
                   <h3 className={classNames(plan.featured ? 'text-indigo-600' : 'text-gray-900', 'text-sm font-bold')}>
                     {plan.title}
                   </h3>
-                  <p className="mt-2 text-sm text-gray-500">{plan.description}</p>
+                  <p className='mt-2 text-sm text-gray-500'>{plan.description}</p>
                 </div>
-                <h4 className="mt-10 text-sm font-bold text-gray-900">Catered for business</h4>
+                <h4 className='mt-10 text-sm font-bold text-gray-900'>Catered for business</h4>
 
-                <div className="relative mt-6">
+                <div className='relative mt-6'>
                   {/* Fake card background */}
-                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden sm:block">
+                  <div aria-hidden='true' className='pointer-events-none absolute inset-0 hidden sm:block'>
                     <div
                       className={classNames(
                         plan.featured ? 'shadow-md' : 'shadow',
-                        'absolute right-0 w-1/2 h-full bg-white rounded-lg'
+                        'absolute right-0 w-1/2 h-full bg-white rounded-lg',
                       )}
                     />
                   </div>
@@ -331,22 +334,22 @@ export default function Pricing() {
                   <div
                     className={classNames(
                       plan.featured ? 'ring-2 ring-indigo-600 shadow-md' : 'ring-1 ring-black ring-opacity-5 shadow',
-                      'relative py-3 px-4 bg-white rounded-lg sm:p-0 sm:bg-transparent sm:rounded-none sm:ring-0 sm:shadow-none'
+                      'relative py-3 px-4 bg-white rounded-lg sm:p-0 sm:bg-transparent sm:rounded-none sm:ring-0 sm:shadow-none',
                     )}
                   >
-                    <dl className="divide-y divide-gray-200">
+                    <dl className='divide-y divide-gray-200'>
                       {features.map((feature) => (
                         <div
                           key={feature.title}
-                          className="flex items-center justify-between py-3 sm:grid sm:grid-cols-2"
+                          className='flex items-center justify-between py-3 sm:grid sm:grid-cols-2'
                         >
-                          <dt className="pr-4 text-sm font-medium text-gray-600">{feature.title}</dt>
-                          <dd className="flex items-center justify-end sm:justify-center sm:px-4">
+                          <dt className='pr-4 text-sm font-medium text-gray-600'>{feature.title}</dt>
+                          <dd className='flex items-center justify-end sm:justify-center sm:px-4'>
                             {typeof feature.tiers[mobilePlanIndex].value === 'string' ? (
                               <span
                                 className={classNames(
                                   feature.tiers[mobilePlanIndex].featured ? 'text-indigo-600' : 'text-gray-900',
-                                  'text-sm font-medium'
+                                  'text-sm font-medium',
                                 )}
                               >
                                 {feature.tiers[mobilePlanIndex].value}
@@ -354,12 +357,12 @@ export default function Pricing() {
                             ) : (
                               <>
                                 {feature.tiers[mobilePlanIndex].value === true ? (
-                                  <CheckIcon className="mx-auto h-5 w-5 text-indigo-600" aria-hidden="true" />
+                                    <CheckIcon className='mx-auto h-5 w-5 text-indigo-600' aria-hidden='true' />
                                 ) : (
-                                  <XMarkIcon className="mx-auto h-5 w-5 text-gray-400" aria-hidden="true" />
+                                      <XMarkIcon className='mx-auto h-5 w-5 text-gray-400' aria-hidden='true' />
                                 )}
 
-                                <span className="sr-only">
+                                  <span className='sr-only'>
                                   {feature.tiers[mobilePlanIndex].value === true ? 'Yes' : 'No'}
                                 </span>
                               </>
@@ -371,25 +374,25 @@ export default function Pricing() {
                   </div>
 
                   {/* Fake card border */}
-                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden sm:block">
+                  <div aria-hidden='true' className='pointer-events-none absolute inset-0 hidden sm:block'>
                     <div
                       className={classNames(
                         plan.featured ? 'ring-2 ring-indigo-600' : 'ring-1 ring-black ring-opacity-5',
-                        'absolute right-0 w-1/2 h-full rounded-lg'
+                        'absolute right-0 w-1/2 h-full rounded-lg',
                       )}
                     />
                   </div>
                 </div>
 
-                <h4 className="mt-10 text-sm font-bold text-gray-900">Other perks</h4>
+                <h4 className='mt-10 text-sm font-bold text-gray-900'>Other perks</h4>
 
-                <div className="relative mt-6">
+                <div className='relative mt-6'>
                   {/* Fake card background */}
-                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden sm:block">
+                  <div aria-hidden='true' className='pointer-events-none absolute inset-0 hidden sm:block'>
                     <div
                       className={classNames(
                         plan.featured ? 'shadow-md' : 'shadow',
-                        'absolute right-0 w-1/2 h-full bg-white rounded-lg'
+                        'absolute right-0 w-1/2 h-full bg-white rounded-lg',
                       )}
                     />
                   </div>
@@ -397,21 +400,21 @@ export default function Pricing() {
                   <div
                     className={classNames(
                       plan.featured ? 'ring-2 ring-indigo-600 shadow-md' : 'ring-1 ring-black ring-opacity-5 shadow',
-                      'relative py-3 px-4 bg-white rounded-lg sm:p-0 sm:bg-transparent sm:rounded-none sm:ring-0 sm:shadow-none'
+                      'relative py-3 px-4 bg-white rounded-lg sm:p-0 sm:bg-transparent sm:rounded-none sm:ring-0 sm:shadow-none',
                     )}
                   >
-                    <dl className="divide-y divide-gray-200">
+                    <dl className='divide-y divide-gray-200'>
                       {perks.map((perk) => (
-                        <div key={perk.title} className="flex justify-between py-3 sm:grid sm:grid-cols-2">
-                          <dt className="text-sm font-medium text-gray-600 sm:pr-4">{perk.title}</dt>
-                          <dd className="text-center sm:px-4">
+                        <div key={perk.title} className='flex justify-between py-3 sm:grid sm:grid-cols-2'>
+                          <dt className='text-sm font-medium text-gray-600 sm:pr-4'>{perk.title}</dt>
+                          <dd className='text-center sm:px-4'>
                             {perk.tiers[mobilePlanIndex].value === true ? (
-                              <CheckIcon className="mx-auto h-5 w-5 text-indigo-600" aria-hidden="true" />
+                              <CheckIcon className='mx-auto h-5 w-5 text-indigo-600' aria-hidden='true' />
                             ) : (
-                              <XMarkIcon className="mx-auto h-5 w-5 text-gray-400" aria-hidden="true" />
+                                <XMarkIcon className='mx-auto h-5 w-5 text-gray-400' aria-hidden='true' />
                             )}
 
-                            <span className="sr-only">{perk.tiers[mobilePlanIndex].value === true ? 'Yes' : 'No'}</span>
+                            <span className='sr-only'>{perk.tiers[mobilePlanIndex].value === true ? 'Yes' : 'No'}</span>
                           </dd>
                         </div>
                       ))}
@@ -419,11 +422,11 @@ export default function Pricing() {
                   </div>
 
                   {/* Fake card border */}
-                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden sm:block">
+                  <div aria-hidden='true' className='pointer-events-none absolute inset-0 hidden sm:block'>
                     <div
                       className={classNames(
                         plan.featured ? 'ring-2 ring-indigo-600' : 'ring-1 ring-black ring-opacity-5',
-                        'absolute right-0 w-1/2 h-full rounded-lg'
+                        'absolute right-0 w-1/2 h-full rounded-lg',
                       )}
                     />
                   </div>
@@ -434,67 +437,70 @@ export default function Pricing() {
         </section>
 
         {/* Feature comparison (lg+) */}
-        <section aria-labelledby="comparison-heading" className="hidden lg:block">
-          <h2 id="comparison-heading" className="sr-only">
+        <section aria-labelledby='comparison-heading' className='hidden lg:block'>
+          <h2 id='comparison-heading' className='sr-only'>
             Feature comparison
           </h2>
 
-          <div className="mx-auto max-w-7xl py-24 px-8">
-            <div className="flex w-full items-stretch border-t border-gray-200">
-              <div className="-mt-px flex w-1/4 items-end py-6 pr-4">
-                <h3 className="mt-auto text-sm font-bold text-gray-900">Catered for business</h3>
+          <div className='mx-auto max-w-7xl py-24 px-8'>
+            <div className='flex w-full items-stretch border-t border-gray-200'>
+              <div className='-mt-px flex w-1/4 items-end py-6 pr-4'>
+                <h3 className='mt-auto text-sm font-bold text-gray-900'>Catered for business</h3>
               </div>
               {plans.map((plan, planIdx) => (
                 <div
                   key={plan.title}
-                  aria-hidden="true"
+                  aria-hidden='true'
                   className={classNames(planIdx === plans.length - 1 ? '' : 'pr-4', '-mt-px pl-4 w-1/4')}
                 >
                   <div
-                    className={classNames(plan.featured ? 'border-indigo-600' : 'border-transparent', 'py-6 border-t-2')}
+                    className={classNames(
+                      plan.featured ? 'border-indigo-600' : 'border-transparent',
+                      'py-6 border-t-2',
+                    )}
                   >
                     <p className={classNames(plan.featured ? 'text-indigo-600' : 'text-gray-900', 'text-sm font-bold')}>
                       {plan.title}
                     </p>
-                    <p className="mt-2 text-sm text-gray-500">{plan.description}</p>
+                    <p className='mt-2 text-sm text-gray-500'>{plan.description}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="relative">
+            <div className='relative'>
               {/* Fake card backgrounds */}
-              <div className="pointer-events-none absolute inset-0 flex items-stretch" aria-hidden="true">
-                <div className="w-1/4 pr-4" />
-                <div className="w-1/4 px-4">
-                  <div className="h-full w-full rounded-lg bg-white shadow" />
+              <div className='pointer-events-none absolute inset-0 flex items-stretch' aria-hidden='true'>
+                <div className='w-1/4 pr-4' />
+                <div className='w-1/4 px-4'>
+                  <div className='h-full w-full rounded-lg bg-white shadow' />
                 </div>
-                <div className="w-1/4 px-4">
-                  <div className="h-full w-full rounded-lg bg-white shadow-md" />
+                <div className='w-1/4 px-4'>
+                  <div className='h-full w-full rounded-lg bg-white shadow-md' />
                 </div>
-                <div className="w-1/4 pl-4">
-                  <div className="h-full w-full rounded-lg bg-white shadow" />
+                <div className='w-1/4 pl-4'>
+                  <div className='h-full w-full rounded-lg bg-white shadow' />
                 </div>
               </div>
 
-              <table className="relative w-full">
-                <caption className="sr-only">Business feature comparison</caption>
+              <table className='relative w-full'>
+                <caption className='sr-only'>Business feature comparison</caption>
                 <thead>
-                  <tr className="text-left">
-                    <th scope="col">
-                      <span className="sr-only">Feature</span>
+                  <tr className='text-left'>
+                    <th scope='col'>
+                      <span className='sr-only'>Feature</span>
                     </th>
                     {plans.map((plan) => (
-                      <th key={plan.title} scope="col">
-                        <span className="sr-only">{plan.title} plan</span>
+                      <th key={plan.title} scope='col'>
+                        <span className='sr-only'>{plan.title} plan</span>
                       </th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100">
+                <tbody className='divide-y divide-gray-100'>
                   {features.map((feature) => (
                     <tr key={feature.title}>
-                      <th scope="row" className="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">
+                      <th scope='row' className='w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600'>
                         {feature.title}
                       </th>
                       {feature.tiers.map((tier, tierIdx) => (
@@ -502,15 +508,15 @@ export default function Pricing() {
                           key={tier.title}
                           className={classNames(
                             tierIdx === feature.tiers.length - 1 ? 'pl-4' : 'px-4',
-                            'relative w-1/4 py-0 text-center'
+                            'relative w-1/4 py-0 text-center',
                           )}
                         >
-                          <span className="relative h-full w-full py-3">
+                          <span className='relative h-full w-full py-3'>
                             {typeof tier.value === 'string' ? (
                               <span
                                 className={classNames(
                                   tier.featured ? 'text-indigo-600' : 'text-gray-900',
-                                  'text-sm font-medium'
+                                  'text-sm font-medium',
                                 )}
                               >
                                 {tier.value}
@@ -518,12 +524,12 @@ export default function Pricing() {
                             ) : (
                               <>
                                 {tier.value === true ? (
-                                  <CheckIcon className="mx-auto h-5 w-5 text-indigo-600" aria-hidden="true" />
+                                    <CheckIcon className='mx-auto h-5 w-5 text-indigo-600' aria-hidden='true' />
                                 ) : (
-                                  <XMarkIcon className="mx-auto h-5 w-5 text-gray-400" aria-hidden="true" />
+                                      <XMarkIcon className='mx-auto h-5 w-5 text-gray-400' aria-hidden='true' />
                                 )}
 
-                                <span className="sr-only">{tier.value === true ? 'Yes' : 'No'}</span>
+                                  <span className='sr-only'>{tier.value === true ? 'Yes' : 'No'}</span>
                               </>
                             )}
                           </span>
@@ -535,55 +541,55 @@ export default function Pricing() {
               </table>
 
               {/* Fake card borders */}
-              <div className="pointer-events-none absolute inset-0 flex items-stretch" aria-hidden="true">
-                <div className="w-1/4 pr-4" />
-                <div className="w-1/4 px-4">
-                  <div className="h-full w-full rounded-lg ring-1 ring-black ring-opacity-5" />
+              <div className='pointer-events-none absolute inset-0 flex items-stretch' aria-hidden='true'>
+                <div className='w-1/4 pr-4' />
+                <div className='w-1/4 px-4'>
+                  <div className='h-full w-full rounded-lg ring-1 ring-black ring-opacity-5' />
                 </div>
-                <div className="w-1/4 px-4">
-                  <div className="h-full w-full rounded-lg ring-2 ring-indigo-600 ring-opacity-100" />
+                <div className='w-1/4 px-4'>
+                  <div className='h-full w-full rounded-lg ring-2 ring-indigo-600 ring-opacity-100' />
                 </div>
-                <div className="w-1/4 pl-4">
-                  <div className="h-full w-full rounded-lg ring-1 ring-black ring-opacity-5" />
+                <div className='w-1/4 pl-4'>
+                  <div className='h-full w-full rounded-lg ring-1 ring-black ring-opacity-5' />
                 </div>
               </div>
             </div>
 
-            <h3 className="mt-10 text-sm font-bold text-gray-900">Other perks</h3>
+            <h3 className='mt-10 text-sm font-bold text-gray-900'>Other perks</h3>
 
-            <div className="relative mt-6">
+            <div className='relative mt-6'>
               {/* Fake card backgrounds */}
-              <div className="pointer-events-none absolute inset-0 flex items-stretch" aria-hidden="true">
-                <div className="w-1/4 pr-4" />
-                <div className="w-1/4 px-4">
-                  <div className="h-full w-full rounded-lg bg-white shadow" />
+              <div className='pointer-events-none absolute inset-0 flex items-stretch' aria-hidden='true'>
+                <div className='w-1/4 pr-4' />
+                <div className='w-1/4 px-4'>
+                  <div className='h-full w-full rounded-lg bg-white shadow' />
                 </div>
-                <div className="w-1/4 px-4">
-                  <div className="h-full w-full rounded-lg bg-white shadow-md" />
+                <div className='w-1/4 px-4'>
+                  <div className='h-full w-full rounded-lg bg-white shadow-md' />
                 </div>
-                <div className="w-1/4 pl-4">
-                  <div className="h-full w-full rounded-lg bg-white shadow" />
+                <div className='w-1/4 pl-4'>
+                  <div className='h-full w-full rounded-lg bg-white shadow' />
                 </div>
               </div>
 
-              <table className="relative w-full">
-                <caption className="sr-only">Perk comparison</caption>
+              <table className='relative w-full'>
+                <caption className='sr-only'>Perk comparison</caption>
                 <thead>
-                  <tr className="text-left">
-                    <th scope="col">
-                      <span className="sr-only">Perk</span>
+                  <tr className='text-left'>
+                    <th scope='col'>
+                      <span className='sr-only'>Perk</span>
                     </th>
                     {plans.map((plan) => (
-                      <th key={plan.title} scope="col">
-                        <span className="sr-only">{plan.title} plan</span>
+                      <th key={plan.title} scope='col'>
+                        <span className='sr-only'>{plan.title} plan</span>
                       </th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100">
+                <tbody className='divide-y divide-gray-100'>
                   {perks.map((perk) => (
                     <tr key={perk.title}>
-                      <th scope="row" className="w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600">
+                      <th scope='row' className='w-1/4 py-3 pr-4 text-left text-sm font-medium text-gray-600'>
                         {perk.title}
                       </th>
                       {perk.tiers.map((tier, tierIdx) => (
@@ -591,17 +597,17 @@ export default function Pricing() {
                           key={tier.title}
                           className={classNames(
                             tierIdx === perk.tiers.length - 1 ? 'pl-4' : 'px-4',
-                            'relative w-1/4 py-0 text-center'
+                            'relative w-1/4 py-0 text-center',
                           )}
                         >
-                          <span className="relative h-full w-full py-3">
+                          <span className='relative h-full w-full py-3'>
                             {tier.value === true ? (
-                              <CheckIcon className="mx-auto h-5 w-5 text-indigo-600" aria-hidden="true" />
+                              <CheckIcon className='mx-auto h-5 w-5 text-indigo-600' aria-hidden='true' />
                             ) : (
-                              <XMarkIcon className="mx-auto h-5 w-5 text-gray-400" aria-hidden="true" />
+                                <XMarkIcon className='mx-auto h-5 w-5 text-gray-400' aria-hidden='true' />
                             )}
 
-                            <span className="sr-only">{tier.value === true ? 'Yes' : 'No'}</span>
+                            <span className='sr-only'>{tier.value === true ? 'Yes' : 'No'}</span>
                           </span>
                         </td>
                       ))}
@@ -611,16 +617,16 @@ export default function Pricing() {
               </table>
 
               {/* Fake card borders */}
-              <div className="pointer-events-none absolute inset-0 flex items-stretch" aria-hidden="true">
-                <div className="w-1/4 pr-4" />
-                <div className="w-1/4 px-4">
-                  <div className="h-full w-full rounded-lg ring-1 ring-black ring-opacity-5" />
+              <div className='pointer-events-none absolute inset-0 flex items-stretch' aria-hidden='true'>
+                <div className='w-1/4 pr-4' />
+                <div className='w-1/4 px-4'>
+                  <div className='h-full w-full rounded-lg ring-1 ring-black ring-opacity-5' />
                 </div>
-                <div className="w-1/4 px-4">
-                  <div className="h-full w-full rounded-lg ring-2 ring-indigo-600 ring-opacity-100" />
+                <div className='w-1/4 px-4'>
+                  <div className='h-full w-full rounded-lg ring-2 ring-indigo-600 ring-opacity-100' />
                 </div>
-                <div className="w-1/4 pl-4">
-                  <div className="h-full w-full rounded-lg ring-1 ring-black ring-opacity-5" />
+                <div className='w-1/4 pl-4'>
+                  <div className='h-full w-full rounded-lg ring-1 ring-black ring-opacity-5' />
                 </div>
               </div>
             </div>
