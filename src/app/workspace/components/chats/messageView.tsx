@@ -129,8 +129,8 @@ export default function MessageView() {
           <li
             key={message.timestamp}
             className={classNames(
-              message.side === 'left' ? 'mr-auto' : 'ml-auto',
-              'mb-8 rounded-md bg-sky-600 text-white py-3 px-6 max-w-md',
+              message.side === 'left' ? 'mr-auto rounded-bl-sm' : 'ml-auto rounded-br-sm',
+              'mb-8 rounded-2xl bg-sky-600 text-white py-3 px-6 max-w-md',
             )}
           >
             {message.text}

@@ -341,7 +341,7 @@ export function WebHeader() {
             <Link href='/pricing' className='text-base font-medium text-gray-500 hover:text-gray-900'>
               Pricing
             </Link>
-            <Link href='/contact' className='text-base font-medium text-gray-500 hover:text-gray-900'>
+            <Link href='/contacts' className='text-base font-medium text-gray-500 hover:text-gray-900'>
               Contacts
             </Link>
           </Popover.Group>
@@ -349,12 +349,12 @@ export function WebHeader() {
             <Link href='/signin' className='whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900'>
               Sign in
             </Link>
-            <a
-              href='#'
+            <Link
+              href='/signup'
               className='ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700'
             >
               Sign up
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -410,22 +410,22 @@ export function WebHeader() {
                   <Link href='/pricing' className='text-base font-medium text-gray-500 hover:text-gray-900'>
                     Pricing
                   </Link>
-                  <Link href='/contact' className='text-base font-medium text-gray-500 hover:text-gray-900'>
+                  <Link href='/contacts' className='text-base font-medium text-gray-500 hover:text-gray-900'>
                     Contacts
                   </Link>
                 </div>
                 <div className='mt-6'>
-                  <a
-                    href='#'
+                  <Link
+                    href='/signup'
                     className='flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 text-base font-medium text-white shadow-sm hover:from-purple-700 hover:to-indigo-700'
                   >
                     Sign up
-                  </a>
+                  </Link>
                   <p className='mt-6 text-center text-base font-medium text-gray-500'>
                     Existing customer?
-                    <a href='#' className='text-gray-900'>
+                    <Link href='/signin' className='text-gray-900'>
                       Sign in
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>

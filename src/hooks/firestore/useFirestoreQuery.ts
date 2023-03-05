@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from 'react'
-import { onSnapshot, queryEqual, Query, DocumentData, QueryDocumentSnapshot } from 'firebase/firestore'
-import { useMemoCompare } from './useMemoCompare'
+import { onSnapshot, queryEqual, Query, DocumentData } from 'firebase/firestore'
+import { useMemoCompare } from '../useMemoCompare'
 
 const reducer = (state: any, action: any) => {
   switch (action.type) {

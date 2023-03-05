@@ -1,7 +1,9 @@
-export default function Snippet() {
+import Snippet from "./snippet";
+
+export default function SnippetContainer() {
   return (
     <main>
-      <h1>Snippet</h1>
+      <Snippet />
     </main>
   )
 }

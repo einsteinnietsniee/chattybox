@@ -23,8 +23,7 @@ export default function Contact() {
             <div className='mx-auto max-w-md sm:max-w-lg lg:mx-0'>
               <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>Let&apos;s work together</h2>
               <p className='mt-4 text-lg text-gray-500 sm:mt-3'>
-                We’d love to hear from you! Send us a message using the form opposite, or email us. We’d love to hear from
-                you! Send us a message using the form opposite, or email us.
+                We’d love to hear from you! Send us a message using the form opposite, or email us.
               </p>
               <form action='#' method='POST' className='mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8'>
                 <div>
