@@ -1,6 +1,6 @@
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
-import { IUserCreateArgs } from "../types/user";
+import {IUserCreateArgs} from "../types/user";
 
 admin.initializeApp();
 
@@ -32,7 +32,7 @@ export const userCreateHandler = async (data: IUserCreateArgs, context: function
     });
 
     return {
-      result: "Success"
+      result: "Success",
     };
   });
 };

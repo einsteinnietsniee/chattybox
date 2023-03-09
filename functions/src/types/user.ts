@@ -1,4 +1,4 @@
-type TRole = 'owner' | 'admin' | 'supervisor' | 'agent';
+type TRole = "owner" | "admin" | "supervisor" | "agent";
 
 export interface IUser {
   id: string;
