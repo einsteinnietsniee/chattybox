@@ -1,11 +1,13 @@
 'use client'
+import { useRouter } from "next/navigation"
 import { useCallback, useEffect, useState } from 'react';
 import {
+  AuthError,
+  AuthErrorCodes,
   User,
   UserCredential,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  getAuth,
   onAuthStateChanged,
   sendEmailVerification,
   sendPasswordResetEmail,
@@ -13,13 +15,16 @@ import {
   signInWithPopup,
   updateProfile,
 } from 'firebase/auth'
-
-import useFirebase from "./useFirebase";
+import { FunctionsErrorCode } from 'firebase/functions'
 import { useUserMethods } from './useUserData';
+import { useAuth } from "./useFirebase";
+import useLoadingState from "../useLoadingState";
 
-function useAuth() {
-  const app = useFirebase()
-  return getAuth(app)
+type TAuthErrorCodeValues = typeof AuthErrorCodes[keyof typeof AuthErrorCodes];
+
+const ERROR_MESSAGES: Partial<Record<TAuthErrorCodeValues | FunctionsErrorCode, string>> = {
+  [AuthErrorCodes.CREDENTIAL_MISMATCH]: 'Incorrect email or password',
+  'functions/already-exists': 'User already exists',
 }
 
 export function useGetUser() {
@@ -95,6 +100,8 @@ interface ISignUpArgs {
 }
 
 export function useSignUp() {
+  const { error, loading, handleStartLoading, handleStopLoading, handleError } = useLoadingState()
+  const router = useRouter()
   const auth = useAuth()
   const google = useGoogleProvider()
   const { handleCreateUserWithOrganization } = useUserMethods()
@@ -107,18 +114,29 @@ export function useSignUp() {
       lastName,
       organizationName,
     }: ISignUpArgs) => {
+      handleStartLoading()
+
       try {
         const credentials: UserCredential = await createUserWithEmailAndPassword(auth, email, password)
-        await updateProfile(credentials.user, {
-          displayName: `${firstName} ${lastName}`,
-        })
-        handleCreateUserWithOrganization({
-          user: { email, firstName, lastName, id: credentials.user.uid, role: ['owner'] },
-          organization: { name: organizationName }
-        })
+        await Promise.all([
+          updateProfile(credentials.user, {
+            displayName: `${firstName} ${lastName}`,
+          }),
+          handleCreateUserWithOrganization({
+            user: { email, firstName, lastName, id: credentials.user.uid, role: ['owner'] },
+            organization: { name: organizationName }
+          })
+        ])
+        router.push('/workspace')
       } catch (error) {
-        console.error(error)
+        const err = error as unknown as AuthError;
+        console.log('CHECK', { code: err.code, message: err.message, err })
+        const message = ERROR_MESSAGES[err.code as TAuthErrorCodeValues] ?? 'Something went wrong'
+
+        handleError(message)
       }
+
+      handleStopLoading()
     }, [auth]
   )
 
@@ -131,34 +149,50 @@ export function useSignUp() {
         const token = credential?.accessToken;
         const user = result.user;
         console.log('GOOGLE SIGNIN', token, user, credential)
+        router.push('/workspace')
       } catch (error) {
-        console.error(error)
+        const err = error as unknown as AuthError;
+        const message = ERROR_MESSAGES[err.code as TAuthErrorCodeValues] ?? 'Something went wrong'
+
+        handleError(message)
       }
     },
     [auth, google]
   )
 
-  return { handleEmailSignUp, handleGoogleSignUp }
+  return { error, loading, handleEmailSignUp, handleGoogleSignUp }
 }
 
 export function useSignIn() {
+  const { error, loading, handleStartLoading, handleStopLoading, handleError } = useLoadingState()
+  const router = useRouter()
   const auth = useAuth()
   const google = useGoogleProvider()
 
   const handleEmailSignIn = useCallback(
     async (email: string, password: string) => {
+      handleStartLoading()
+
       try {
         const credentials = await signInWithEmailAndPassword(auth, email, password)
         console.log('CREDENTIALS', credentials)
+        router.push('/workspace')
       } catch (error) {
-        console.error(error)
+        const err = error as unknown as AuthError;
+        const message = ERROR_MESSAGES[err.code as TAuthErrorCodeValues] ?? 'Something went wrong'
+
+        handleError(message)
       }
+
+      handleStopLoading()
     },
     [auth]
   )
 
   const handleGoogleSignIn = useCallback(
     async () => {
+      handleStartLoading()
+
       try {
         const result = await signInWithPopup(auth, google)
         console.log('RES', result)
@@ -166,12 +200,18 @@ export function useSignIn() {
         const token = credential?.accessToken;
         const user = result.user;
         console.log('GOOGLE SIGNIN', token, user, credential)
+        router.push('/workspace')
       } catch (error) {
-        console.error(error)
+        const err = error as unknown as AuthError;
+        const message = ERROR_MESSAGES[err.code as TAuthErrorCodeValues] ?? 'Something went wrong'
+
+        handleError(message)
       }
+
+      handleStopLoading()
     },
     [auth, google]
   )
 
-  return { handleEmailSignIn, handleGoogleSignIn }
+  return { error, loading, handleEmailSignIn, handleGoogleSignIn }
 }

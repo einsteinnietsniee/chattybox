@@ -7,9 +7,11 @@
     "lintify": "next lint --fix --dir src",
     "prettier": "prettier --list-different \"./src/**/*.{ts,tsx,md}\"",
     "prettify": "prettier --write \"**/*.{scss,js,ts,tsx}\"",
+    "emulator": "firebase emulators:start --import=./firedata --export-on-exit",
+    "start": "yarn emulator & yarn dev",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "serve": "next start"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.11",
@@ -24,9 +26,11 @@
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "firebase": "^9.17.1",
+    "global": "^4.4.0",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "turbo": "^1.8.3",
     "typescript": "4.9.5"
   },
   "devDependencies": {
