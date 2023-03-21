@@ -1,4 +1,4 @@
-import { collection, addDoc, writeBatch, doc, setDoc, runTransaction } from "firebase/firestore"; 
+import { collection, addDoc, writeBatch, doc, setDoc, runTransaction } from "firebase/firestore";
 import { useCallback } from "react";
 import { useFirestore } from "./useFirebase";
 
@@ -36,9 +36,9 @@ export function useUserMethods() {
         if (newUser.exists()) {
           throw "Document already exist!";
         }
-    
+
         transaction.set(newUserRef, { firstName: user.firstName, lastName: user.lastName, email: user.email });
-  
+
         const newOrganizationRef = doc(collection(db, 'organizations'));
         transaction.set(newOrganizationRef, { name: organization.name, agents: [user.id] })
       });
@@ -64,6 +64,17 @@ export function useUserMethods() {
       console.error('ERROR creating user', error)
     }
   }, [db])
+
+  // const handleCreateOrganization = useCallback(async(organizationName: string, id: string) => {
+  //   try {
+  //     const newOrganizationRef = doc(collection(db, 'organizations'));
+  //     await setDoc(doc(db, "organizations", id), {
+  //       organizationName
+  //     })
+  //   } catch (error) {
+  //     console.error('ERROR creating organization', error)
+  //   }
+  // }, [])
 
   return { handleCreateUserWithOrganization, handleCreateUser }
 }

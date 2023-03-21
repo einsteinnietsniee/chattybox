@@ -1,5 +1,11 @@
 import { SVGProps } from 'react'
 
+export const userAuthNavigation = [
+  { name: "SignUp", href: "/signup" },
+  { name: "SignIn", href: "/signin" },
+  { name: "NewOrganization", href: "/newOrganization" }
+]
+
 export const headerNavigation = [
   { name: 'Workspace', href: '/workspace', current: true },
   { name: 'Supervisor', href: '#', current: false },

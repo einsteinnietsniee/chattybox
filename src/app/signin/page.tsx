@@ -3,8 +3,11 @@ import { FormEventHandler } from 'react'
 import Footer from '~/components/common/footer'
 import { WebHeader } from '~/components/common/header'
 import { useGetUser, useSignIn } from '~/hooks/firestore/useAuth'
+import { useRouter } from 'next/navigation'
+import { userAuthNavigation } from '~/configs/navigation'
 
 export default function SignIn() {
+  const router = useRouter()
   const { handleGoogleSignIn, handleEmailSignIn } = useSignIn()
   const user = useGetUser()
   console.log('USER', user)
@@ -21,6 +24,12 @@ export default function SignIn() {
     }
 
     const res = await handleEmailSignIn(email as string, password as string)
+    if (res && user.user) {
+
+      const newOrganizationHref = userAuthNavigation[2]
+      router.push(newOrganizationHref.href)
+
+    }
     console.log(res)
   }
 
