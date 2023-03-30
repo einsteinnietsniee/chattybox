@@ -5,6 +5,7 @@ import { WebHeader } from '~/components/common/header'
 import { useGetUser, useSignIn } from '~/hooks/firestore/useAuth'
 import { useRouter } from 'next/navigation'
 import { userAuthNavigation } from '~/configs/navigation'
+import { IUserData, useGetUserData } from '~/hooks/firestore/useGetUserData'
 
 export default function SignIn() {
   const router = useRouter()
@@ -24,11 +25,15 @@ export default function SignIn() {
     }
 
     const res = await handleEmailSignIn(email as string, password as string)
-    if (res && user.user) {
-
-      const newOrganizationHref = userAuthNavigation[2]
-      router.push(newOrganizationHref.href)
-
+    if (res) {
+      const doesUserHaveAnOrganization: IUserData | undefined = await useGetUserData(res.user.uid)
+      console.log("does...", doesUserHaveAnOrganization)
+      if (doesUserHaveAnOrganization) {
+        if (!doesUserHaveAnOrganization.organizationId) {
+          const newOrganizationHref = userAuthNavigation[2]
+          router.push(newOrganizationHref.href)
+        }
+      }
     }
     console.log(res)
   }

@@ -52,7 +52,7 @@ export function useEmailVerification() {
   if (loading) {
     return null
   }
-  
+
   if (!user) {
     throw new Error('User is not logged in!')
   }
@@ -150,6 +150,7 @@ export function useSignIn() {
       try {
         const credentials = await signInWithEmailAndPassword(auth, email, password)
         console.log('CREDENTIALS', credentials)
+        return credentials
       } catch (error) {
         console.error(error)
       }
